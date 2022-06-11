@@ -2,7 +2,7 @@ export const isRegisterSuccess = state => {
   return state.auth.registerUser;
 };
 export const isLoginSuccess = state => {
-  return state.loginUser;
+  return state.auth.loginUser;
 };
 export const isOtpVerifySuccess = state => {
   return state.auth.otpVerify;

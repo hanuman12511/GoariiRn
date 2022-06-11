@@ -1,11 +1,17 @@
+ import React, {useState, useEffect} from 'react';
 
+import 'react-native-gesture-handler';
+import {Provider} from 'react-redux';
+import store from './src/data/store';
 
-import React from 'react';
-import 'react-native-gesture-handler'
+import StackNav from './src/navigation/StackNav';
 
-import NavContainer from './src/routes/Routes'
-
-const App=()=>{
-  return<NavContainer/>
-}
-export default App;
+export default App = props => {
+  return (
+    <>
+      <Provider store={store}>
+        <StackNav />
+      </Provider>
+    </>
+  );
+}; 

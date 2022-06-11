@@ -2,8 +2,7 @@ import * as actions from './actions';
 import {Alert} from 'react-native';
 import {clearData} from 'api/UserPreference';
 import {BASE_URL, makeRequest} from 'api/ApiInfo';
-
-
+import {nsNavigate} from 'routes/NavigationService';
 
 export const registerUser = params => async dispatch => {
   try {

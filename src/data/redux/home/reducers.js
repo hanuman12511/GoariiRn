@@ -3,10 +3,10 @@ import {combineReducers} from 'redux';
 
 const HomeReducer = (state = {}, action) => {
   switch (action.type) {
-    
     case types.GET_HOME:
-    // console.log("GET_HOME",action.payload)
-    // dta get
+      {
+        console.log('+++++++++home redu', action.payload);
+      }
       return action.payload;
 
     case types.ERROR:
@@ -17,10 +17,7 @@ const HomeReducer = (state = {}, action) => {
 };
 
 const reducer = combineReducers({
-  getHome: HomeReducer
-
-}
-);
-
+  getHome: HomeReducer,
+});
 
 export default reducer;

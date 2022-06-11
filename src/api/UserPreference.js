@@ -18,7 +18,7 @@ export const storeData = async (key, data) => {
   // console.log('store Data01))', data);
   try {
     const info = JSON.stringify(data);
-    // console.log('Info ==', info);
+    console.log('Info ==', info);
     const encryptedInfo = await encryptData(info);
     await AsyncStorage.setItem(key, encryptedInfo);
   } catch (error) {

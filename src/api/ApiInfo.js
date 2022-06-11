@@ -48,14 +48,14 @@ export const makeRequest = async (
       }
 
       // request body
-      console.log('Request params:1', params);
+      console.log('Request params:', params);
       if (isContentTypeJSON) {
         // request headers
         info.headers = {
           ...info.headers,
           'Content-Type': 'application/json',
         };
-        console.log('Request params:2', params);
+
         const data = JSON.stringify(params);
         const payload = await encryptData(data);
         const requestBody = {payload};
@@ -73,9 +73,7 @@ export const makeRequest = async (
           }
         }
         info.data = formData;
-        console.log('Request params:3', params);
       }
-      console.log('Request params:4', params);
     } else {
       if (sendAuthorizationToken) {
         // fetching userInfo
@@ -84,7 +82,7 @@ export const makeRequest = async (
           // console.log('Unable to fetch user info');
           return null;
         }
-        console.log('Request params:5', params);
+
         const {authToken} = userInfo;
 
         info.headers = {
@@ -102,12 +100,14 @@ export const makeRequest = async (
         };
       }
     }
-
+    //const BASE_URL = 'https://gaouribrand.com/';
     const response = await AXIOS.request(info);
+    //api/mobile/home
+    //const response = await AXIOS.get(BASE_URL + '/api/mobile/home');
     console.log('Request Info:', info);
- // console.log('Request URL:', url);
+    // console.log('Request URL:', url);
 
-    // const response = await fetch(url, info);
+    //const response = await fetch(url, info);
     console.log('Request Response:', response);
 
     const result = response.data;

@@ -1,4 +1,6 @@
 export const isGetHome = state => {
- // console.log("================++++++++++++++++++============",state.isGetHome)
-  return state.getHome;
+  {
+    console.log('homrs slect   ++++===++', state);
+  }
+  return state.home.getHome;
 };

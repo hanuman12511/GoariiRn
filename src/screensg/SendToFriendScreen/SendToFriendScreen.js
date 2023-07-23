@@ -131,11 +131,11 @@ class SendToFriendScreen extends Component {
         />
 
         <View style={styles.bannerContainer}>
-          {/* <Image
+          <Image
             source={refer_banner}
             resizeMode="cover"
             style={styles.headerBanner}
-          /> */}
+          />
         </View>
 
         <View style={styles.mainContainer}>

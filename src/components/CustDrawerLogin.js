@@ -9,7 +9,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {DrawerActions} from '@react-navigation/native';
-import {AppContext} from 'context_api/context';
+import {AppContext} from '../context_api/context';
 //* AsyncStorage
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {KEYS, getData, clearData} from 'api/UserPreference';
@@ -86,7 +86,7 @@ export default CustDrawer = props => {
         }}
         style={{backgroundColor: 'green', padding: 5, color: 'white'}}
         icon={() => <Icon name="home" color="white" size={20} />}
-        labelStyle={{color: 'white'}}
+        color="white"
       />
     </View>
   );

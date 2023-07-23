@@ -100,14 +100,12 @@ export const makeRequest = async (
         };
       }
     }
-    //const BASE_URL = 'https://gaouribrand.com/';
+
     const response = await AXIOS.request(info);
-    //api/mobile/home
-    //const response = await AXIOS.get(BASE_URL + '/api/mobile/home');
     console.log('Request Info:', info);
     // console.log('Request URL:', url);
 
-    //const response = await fetch(url, info);
+    // const response = await fetch(url, info);
     console.log('Request Response:', response);
 
     const result = response.data;

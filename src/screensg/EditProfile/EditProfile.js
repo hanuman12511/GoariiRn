@@ -191,7 +191,6 @@ function EditProfile(props) {
           </View>
         </View>
       </View>
-      {isProcessing && <ProcessingLoader />}
     </SafeAreaView>
   );
 }

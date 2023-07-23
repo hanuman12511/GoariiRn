@@ -81,7 +81,6 @@ class OfferScreen extends React.Component {
             <Text>{this.state.message}</Text>
           </ScrollView>
         )}
-          {this.state.isProcessing && <ProcessingLoader />}
       </SafeAreaView>
     );
   }

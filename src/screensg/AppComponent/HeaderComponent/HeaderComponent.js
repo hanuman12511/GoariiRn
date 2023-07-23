@@ -40,31 +40,13 @@ export default HeaderComponent = props => {
           />
         </TouchableOpacity>
       </View>
-      <View style={{flex: 1}}>
-        <TouchableOpacity onPress={() => {}}>
-          <Icon
-            name={props.location}
-            color="green"
-            size={20}
-            style={{textAlign: 'left', marginLeft: 20}}
-          />
-        </TouchableOpacity>
-      </View>
+      
       <View style={{flex: 4}}>
         <Text style={{color: 'green', fontSize: 14, marginLeft: 0}}>
           {props.brandname}
         </Text>
       </View>
-      <View style={{flex: 1, alignItems: 'flex-end', flexDirection: 'row'}}>
-        <Icon name={props.alert} color="green" size={20} />
-
-        <Icon
-          name={props.bookmark}
-          color="green"
-          size={20}
-          style={{textAlign: 'right', marginLeft: 20}}
-        />
-      </View>
+     
     </View>
   );
 };

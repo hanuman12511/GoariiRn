@@ -15,7 +15,7 @@ const Store = createStore(
   rootReducer,
   compose(
     middleware,
-   
+  
   ),
 );
 

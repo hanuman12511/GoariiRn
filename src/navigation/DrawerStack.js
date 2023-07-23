@@ -3,12 +3,8 @@ import {View, Text, Image} from 'react-native';
 import {NavigationContainer, DrawerActions} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
-
 import CustDrawer from '../components/CustDrawer';
-
-
 import HomeScreen from '../screensg/HomeScreen';
-import Logout from './Logout';
 import ConfidentialPolicy from '../screensg/ConfidentialPolicy';
 import MyOrderScreen from '../screensg/MyOrderScreen';
 import ContactScreen from '../screensg/ContactScreen';

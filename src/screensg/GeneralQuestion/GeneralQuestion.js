@@ -74,7 +74,6 @@ class GeneralQuestion extends Component {
 
   handleQuestions = props => {
     const id = this.props.isFaqCategories.categories[0].id;
-    console.log("***********id************",id);
     this.props.navigation.navigate('faqquestions', {id});
   };
 
@@ -127,7 +126,6 @@ class GeneralQuestion extends Component {
             <Text style={styles.errText}>{this.state.message}</Text>
           </View>
         )}
-          {this.state.isProcessing && <ProcessingLoader />}
       </SafeAreaView>
     );
   }

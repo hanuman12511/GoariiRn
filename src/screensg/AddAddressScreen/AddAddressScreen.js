@@ -54,7 +54,7 @@ const ASPECT_RATIO = width / height;
 class AddAddressScreen extends Component {
   constructor(props) {
     super(props);
-   // this.navi = get(props, 'navigation.addListener');
+    this.navi = get(props, 'navigation.addListener');
     this.state = {
       isProcessing: false,
       currentLocationAddress: null,

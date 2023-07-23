@@ -157,7 +157,6 @@ class SignUpScreen extends Component {
             <Text style={{color: 'white', fontSize: 20}}>रजिस्टर करे</Text>
           </TouchableOpacity>
         </ScrollView>
-        {this.state.isProcessing && <ProcessingLoader />}
       </View>
     );
   }

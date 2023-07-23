@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, SafeAreaView,FlatList} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import ignoreWarnings from 'ignore-warnings';
 //Redux
 import {connect} from 'react-redux';
@@ -28,7 +28,7 @@ class NotificationScreen extends React.Component {
 
       if (success) {
         const {notifications} = this.props.isNotificationGet;
-console.log("not===",notifications)
+
         this.setState({
           notifications,
           isListRefreshing: false,
@@ -53,7 +53,6 @@ console.log("not===",notifications)
           bookmark=""
           nav={this.props.navigation}
         />
-        <Text>नोटिफिकेशन </Text>
         {this.state.notifications !== '' ? (
           <FlatList
             data={this.state.notifications}
@@ -61,7 +60,7 @@ console.log("not===",notifications)
             keyExtractor={this.keyExtractor}
             ItemSeparatorComponent={this.itemSeparator}
             showsVerticalScrollIndicator={false}
-           
+            contentContainerStyle={styles.listContentContainer}
             refreshing={this.state.isListRefreshing}
             onRefresh={this.handleListRefresh}
           />
@@ -70,7 +69,6 @@ console.log("not===",notifications)
             <Text>{this.state.message}</Text>
           </View>
         )}
-          {this.state.isProcessing && <ProcessingLoader />}
       </SafeAreaView>
     );
   }

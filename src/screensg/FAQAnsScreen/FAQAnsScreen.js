@@ -33,7 +33,6 @@ export default class ReferScreen extends Component {
         <View style={{flex: 1}}>
           <WebView source={{html: `${answer}`}} />
         </View>
-        {this.state.isProcessing && <ProcessingLoader />}
       </SafeAreaView>
     );
   }

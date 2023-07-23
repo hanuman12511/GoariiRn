@@ -73,7 +73,6 @@ class ConfidentialPolicy extends React.Component {
           onPress={this.redirectLogin}>
           <Text style={styles.agreeText}>I Agree</Text>
         </TouchableOpacity> */}
-          {this.state.isProcessing && <ProcessingLoader />}
       </>
     );
   }

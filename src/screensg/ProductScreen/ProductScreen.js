@@ -14,13 +14,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 // redux
 import {connect} from 'react-redux';
 import {cartOperations, cartSelectors} from 'data/redux/cart';
-
-import {KEYS, getData} from 'api/UserPreference';
-import {render} from 'react-native/Libraries/Renderer/implementations/ReactNativeRenderer-prod';
+import {KEYS, getData} from '../../api/UserPreference';
 
 //component
 import HeaderComponent from '../AppComponent/HeaderComponent/HeaderComponent';
-import {after} from 'lodash';
 import ProcessingLoader from '../AppComponent/ProcessingLoader';
 
 class ProductScreen extends React.Component {
@@ -28,11 +25,9 @@ class ProductScreen extends React.Component {
 
   constructor(props) {
     super(props);
-
-    console.log(' connnnnnn=', this.props);
-
     this.state = {
       itemproduct: props.route.params,
+
       name: '',
       brandname: '',
       rate: '',
@@ -47,14 +42,7 @@ class ProductScreen extends React.Component {
 
   UNSAFE_componentWillMount() {
     const {itemproduct} = this.state;
-    console.log('handleCart', itemproduct.item.id);
-    console.log('handleCart', itemproduct.item.name);
-    console.log('handleCart', itemproduct.item.brandName);
-    console.log('handleCart', itemproduct.item.description);
-    console.log('handleCart', itemproduct.item.productImage);
-    console.log('handleCart', itemproduct.item.productAddons[0].id);
-    console.log('handleCart', itemproduct.item.productAddons[0].name);
-    console.log('handleCart', itemproduct.item.productAddons[0].price);
+    
 
     this.setState({
       name: itemproduct.item.name,
@@ -94,8 +82,7 @@ class ProductScreen extends React.Component {
   handleCart = async () => {
     const userInfo = await getData(KEYS.USER_INFO);
 
-    console.log(' connnnnnn=', this.props);
-    if (userInfo !== null) {
+      if (userInfo !== null) {
       try {
         const params = {
           productId: this.state.productId,
@@ -103,8 +90,7 @@ class ProductScreen extends React.Component {
           addonId: this.state.addonId,
         };
 
-        console.log('addcart parmas', params);
-        await this.props.addToCart(params).then(async () => {
+          await this.props.addToCart(params).then(async () => {
           const {success, message} = this.props.isItemAddSuccess;
 
           if (success) {
@@ -160,9 +146,6 @@ class ProductScreen extends React.Component {
         <HeaderComponent
           navlogo="arrow-left"
           brandname=" उत्पाद"
-          alert=""
-          location=""
-          bookmark=""
           nav={this.props.navigation}
         />
         <View
@@ -176,7 +159,6 @@ class ProductScreen extends React.Component {
             style={{
               width: '90%',
               height: '105%',
-
               borderRadius: 20,
               top: -130,
               shadowOffset: {width: -2, height: 4},
@@ -304,7 +286,7 @@ class ProductScreen extends React.Component {
                     color: 'green',
                     fontSize: 18,
                   }}>
-                  ₹. {rate * this.state.quantity} /-
+                  ₹ {rate * this.state.quantity} /-
                 </Text>
               </View>
               <Text style={{color: 'white', fontSize: 20, marginTop: 10}}>
@@ -376,9 +358,12 @@ class ProductScreen extends React.Component {
                   <Text style={{fontSize: 20, color: 'white'}}>+</Text>
                 </TouchableOpacity>
               </View>
-
+              <TouchableOpacity
+                  onPress={this.handleCart}
+                  style={{flexDirection: 'row'}}>
               <View
                 style={{
+                  flexDirection: 'row',
                   width: '90%',
                   height: 60,
                   backgroundColor: 'green',
@@ -395,9 +380,7 @@ class ProductScreen extends React.Component {
                   elevation: 20,
                   shadowColor: '#52006A',
                 }}>
-                <TouchableOpacity
-                  onPress={this.handleCart}
-                  style={{flexDirection: 'row'}}>
+               
                   <Text
                     style={{color: 'white', fontWeight: 'bold', fontSize: 16}}>
                     Add To Cart
@@ -408,14 +391,13 @@ class ProductScreen extends React.Component {
                     color="white"
                     style={{marginLeft: 25}}
                   />
-                </TouchableOpacity>
-              </View>
+              
+              </View>  </TouchableOpacity>
             </View>
           </View>
         </View>
-        {console.log('product====', this.props.navigation)}
+      
         <FooterComponent nav={this.props.navigation} />
-        {this.state.isProcessing && <ProcessingLoader />}
       </View>
     );
   }

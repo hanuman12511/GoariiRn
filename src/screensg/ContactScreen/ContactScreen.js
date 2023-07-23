@@ -234,7 +234,6 @@ class ContactScreen extends React.Component {
             <Text>{this.state.message}</Text>
           </View>
         )}
-          {this.state.isProcessing && <ProcessingLoader />}
       </SafeAreaView>
     );
   }

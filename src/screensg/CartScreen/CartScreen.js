@@ -343,7 +343,7 @@ class CartScreen extends Component {
     }
   };
   handleGoBack = () => {
-    this.props.navigation.navigate('home');
+    this.props.navigation.navigate('Home');
   };
   render() {
     return (

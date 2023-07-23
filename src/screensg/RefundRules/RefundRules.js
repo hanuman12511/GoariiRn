@@ -71,7 +71,6 @@ class RefundRules extends React.Component {
         />
         <WebView source={{html: terms}} />
         <FooterComponent nav={this.props.navigation} />
-        {this.state.isProcessing && <ProcessingLoader />}
       </>
     );
   }

@@ -66,7 +66,6 @@ class PrivacyPolicies extends React.Component {
         ) : (
           <Text>नियम एवं शर्तें{message}</Text>
         )}
-          {this.state.isProcessing && <ProcessingLoader />}
       </>
     );
   }

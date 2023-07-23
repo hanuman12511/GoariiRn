@@ -52,9 +52,7 @@ function OTPScreen(props) {
         AsyncStorage.setItem(USER_DATA, userInfo);
         AsyncStorage.setItem(TOKEN, 'true');
         if (success) {
-          console.log("***signin**",)
-         signIn();
-         props.navigation.navigate('home');
+          signIn();
         }
         setIsProcessing(false);
       } else {

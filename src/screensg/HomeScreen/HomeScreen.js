@@ -8,16 +8,12 @@ import {homeOperations, homeSelectors} from 'data/redux/home';
 import {cartOperations, cartSelectors} from 'data/redux/cart';
 import {KEYS, getData} from 'api/UserPreference';
 import HeaderTop from '../AppComponent/HeaderComponent';
-import BrandComponent from '../AppComponent/BrandComponent';
-import SearchComponent from '../AppComponent/SearchComponent';
-import CategaryComponent from '../AppComponent/CategaryComponent';
+
 import SliderComponent from '../AppComponent/SliderComponent';
-import {ScrollView} from 'react-native-gesture-handler';
 
 import CartComponent from '../AppComponent/CartComponent';
 import FooterComponent from '../AppComponent/FooterComponent';
 import ProcessingLoader from '../AppComponent/ProcessingLoader';
-import {tapGestureHandlerProps} from 'react-native-gesture-handler/lib/typescript/handlers/TapGestureHandler';
 
 class HomeScreen extends React.Component {
   constructor(props) {
@@ -43,8 +39,7 @@ class HomeScreen extends React.Component {
       this.backAction,
     );
   }
-  UNSALF_componentWillMount() {}
-  componentWillUnmount() {}
+ 
   componentWillUnmount() {
     this._subscribe;
     this.backHandler.remove();
@@ -121,23 +116,15 @@ class HomeScreen extends React.Component {
     const {slider, images} = this.state;
   };
 
-  /*   fooder = props => {
-    console.log('footer props  home', props);
-    return <FooterComponent nav={props} />;
-  };
- */
+  
   render() {
-    // const {foodProducts, images, nImage} = this.state;
+  
     let image = [];
     let nImage = [];
     const {images} = this.state;
     const {foodProducts} = this.state;
 
-    /*    console.log(
-      '*************home page images slide*******\n',
-      this.state,
-      '\n*****************************************', 
-    );*/
+   
     if (images !== undefined) {
       images.forEach(img => {
         image.push(Object.values(img));
@@ -154,26 +141,12 @@ class HomeScreen extends React.Component {
         <View style={{}}>
           <HeaderTop
             navlogo="navicon"
-            brandname="Vidyadhar NagarJaipur, Rajasthan 302032
-            "
-            alert=""
+            brandname="Vidyadhar NagarJaipur, Rajasthan 302032"
             location="map-marker"
             bookmark="bell"
             nav={this.props.navigation}
           />
         </View>
-        <View style={{height: 70}}>
-          <BrandComponent logo="" brandname="GaouriBrand" />
-        </View>
-        {/*  <View style={{flex: 1}}>
-            <SearchComponent />
-          </View> */}
-        {/*  <View style={{flex: 1}}>
-            <CategaryComponent
-              product={foodProducts}
-              nav={this.props.navigation}
-            />
-    </View> */}
 
         <View style={{}}>
           <SliderComponent sliders={nImage} />

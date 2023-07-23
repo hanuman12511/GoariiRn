@@ -1,12 +1,11 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-
+import {data2} from '../../../utils/hotelinfo/Data';
 
 import {SliderBox} from 'react-native-image-slider-box';
 export default SliderComponent = props => {
   const {sliders} = props;
 
-  
   return (
     <SliderBox
       images={sliders}

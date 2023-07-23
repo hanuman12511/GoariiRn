@@ -56,10 +56,7 @@ export default HeaderTop = props => {
         </Text>
       </View>
       <View style={{flex: 1, alignItems: 'flex-end', flexDirection: 'row'}}>
-        {/*  <TouchableOpacity onPress={() => props.nav.navigate('notification')}>
-          <Icon name={props.alert} color="green" size={20} />
-        </TouchableOpacity>
- */}
+       
         <TouchableOpacity onPress={() => props.nav.navigate('notification')}>
           <Icon
             name={props.bookmark}

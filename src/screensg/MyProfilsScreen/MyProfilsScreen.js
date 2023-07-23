@@ -18,7 +18,7 @@ import {
 } from 'react-native-responsive-screen';
 
 import ProcessingLoader from '../AppComponent/ProcessingLoader';
-import FooterComponent from '../AppComponent/FooterComponent'
+
 //* AsyncStorage
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -140,7 +140,6 @@ function MyProfilsScreen(props) {
           </View>
         </View>
       </View>
-      {isProcessing && <ProcessingLoader />}
     </SafeAreaView>
   );
 }

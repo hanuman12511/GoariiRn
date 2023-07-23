@@ -85,7 +85,6 @@ class SingleBrandScreen extends React.Component {
         <View>
           <Text> WalletScreen</Text>
         </View>
-        {this.state.isProcessing && <ProcessingLoader />}
       </>
     );
   }

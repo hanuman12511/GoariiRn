@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {View, Animated, StyleSheet, ImageBackground} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
-// Images
 
-
-export default class SplashScreen extends Component {
+export default class SplashScreen extends PureComponent {
   state = {
     opacity: new Animated.Value(0),
   };
@@ -40,7 +38,7 @@ export default class SplashScreen extends Component {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Animated.Image
-          source={{uri:'https://www.marathi.tv/wp-content/uploads/2020/03/Gauri-Name.png?ezimgfmt=ng%3Awebp%2Fngcb30%2Frs%3Adevice%2Frscb30-1'}}
+          source={require('../../asset/appIcon.png')}
           resizeMode="cover"
           onLoad={this.handleAnimation}
           style={animatedImageStyle}

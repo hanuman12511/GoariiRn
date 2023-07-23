@@ -8,7 +8,6 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {DrawerActions} from '@react-navigation/native';
 
 const CustDrawerPage = props => {
   return (
@@ -57,7 +56,6 @@ export default CustDrawer = props => {
         label="लॉगिन करे"
         onPress={() => props.navigation.navigate('login')}
         style={{backgroundColor: 'green', padding: 5}}
-        icon={() => <Icon name="" color="white" size={20} />}
         labelStyle={{color: 'white'}}
       />
     </View>

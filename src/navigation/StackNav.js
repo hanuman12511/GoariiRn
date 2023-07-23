@@ -1,7 +1,7 @@
- import React, {useEffect, useReducer, useMemo} from 'react';
+import React, {useEffect, useReducer, useMemo} from 'react';
 import 'react-native-gesture-handler';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack'; 
+
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import DrawerStack from './DrawerStack';
 
@@ -26,7 +26,6 @@ import {AppContext} from 'context_api/context';
  import AsyncStorage from '@react-native-async-storage/async-storage'; 
 
 // app screensg navigation
-
  import HomeScreen from '../screensg/HomeScreen';
 import ProductScreen from '../screensg/ProductScreen';
 import CartScreen from '../screensg/CartScreen';
@@ -35,57 +34,40 @@ import MyProfilsScreen from '../screensg/MyProfilsScreen';
 import LoginScreen from '../screensg/LoginScreen';
 import OTPScreen from '../screensg/OTPScreen';
 import SignUpScreen from '../screensg/SignUpScreen';
-
+import FAQQuestion from '../screensg/FAQQuestion';
 import FAQAnsScreen from '../screensg/FAQAnsScreen';
 import EditProfile from '../screensg/EditProfile';
 import SplashScreen from '../screensg/SplashScreen';
 import MyAddressScreen from '../screensg/MyAddressScreen';
 import AddAddressScreen from '../screensg/AddAddressScreen';
-import SelectSlotScreen from '../screensg/SelectSlotScreen';
-import PaymentScreen from '../screensg/PaymentScreen';
-import OrderDetailScreen from '../screensg/OrderDetailScreen';
-import FAQQuestion from '../screensg/FAQQuestion';
-
 
 import LoginDrawerStack from './LoginUserData'; 
-
+import {NavigationContainer} from '@react-navigation/native'; 
  const Stack = createNativeStackNavigator(); 
 
 function AuthStackScreen(userData, userIntro, completeProfileStatus) {
   if (userData === 'true') {
     return (
+      <>
         <Stack.Navigator
           initialRouteName="logindrawerstack"
           screenOptions={{headerShown: false}}>
           <Stack.Screen name="logindrawerstack" component={LoginDrawerStack} />
-
           <Stack.Screen name="productscreen" component={ProductScreen} />
-          <Stack.Screen name="OTP" component={OTPScreen} />
-          <Stack.Screen name="login" component={LoginScreen} />
-          <Stack.Screen name="signup" component={SignUpScreen} />
           <Stack.Screen name="wellet" component={WalletScreen} />
           <Stack.Screen name="cart" component={CartScreen} />
-
           <Stack.Screen name="profilescreen" component={MyProfilsScreen} />
           <Stack.Screen name="editprofile" component={EditProfile} />
           <Stack.Screen name="myaddressscreen" component={MyAddressScreen} />
-          <Stack.Screen name="Add Address" component={AddAddressScreen} />
-          <Stack.Screen name="Select Slot" component={SelectSlotScreen} />
-          <Stack.Screen name="Payment Options" component={PaymentScreen} />
-          <Stack.Screen name="Order Detail"component={OrderDetailScreen} />
-          <Stack.Screen name="faqquestions"component={FAQQuestion} />
-          
-        
-         
+          <Stack.Screen name="addaddress" component={AddAddressScreen} />
         </Stack.Navigator>
-     
+      </>
     );
   } else {
     return (
+      <>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-
-
-      <Stack.Screen name="home" component={DrawerStack} />
+          <Stack.Screen name="home" component={DrawerStack} />
           <Stack.Screen name="productscreen" component={ProductScreen} />
           <Stack.Screen name="wellet" component={WalletScreen} />
           <Stack.Screen name="cart" component={CartScreen} />
@@ -95,6 +77,7 @@ function AuthStackScreen(userData, userIntro, completeProfileStatus) {
           <Stack.Screen name="faqquestions" component={FAQQuestion} />
           <Stack.Screen name="faqansScreen" component={FAQAnsScreen} />
         </Stack.Navigator>
+      </>
     );
   }
 }
@@ -113,14 +96,12 @@ export default StackNav = () => {
           };
 
         case SIGN_IN:
-          {console.log("redducer sign in")}
           return {
             ...prevState,
             isSignout: false,
             userIntro: action.userData.intro,
             userToken: action.userData.token,
             completeProfileStatus: action.userData.completeProfileStatus,
-            
           };
         case SIGN_OUT:
           return {
@@ -154,7 +135,7 @@ export default StackNav = () => {
     return {
       signIn: async () => {
         let userInfo;
-console.log("home signin")
+
         try {
           userInfo = {
             token: await AsyncStorage.getItem(TOKEN),
@@ -162,7 +143,6 @@ console.log("home signin")
             completeProfileStatus: await AsyncStorage.getItem(
               COMPLETE_PROFILE_STATUS,
             ),
-           
           };
         } catch (e) {
           console.log('error in useMemo ', e);
@@ -238,46 +218,4 @@ console.log("home signin")
   );
 };
 
-/* 
 
-export default StackNav = () => {
-  return (
-    <NavigationContainer>
-      {/*   <Stack.Navigator
-        initialRouteName="HomePageHotel"
-        screenOptions={{headerShown: false}}>
-        <Stack.Screen name="AccountPage" component={AccountPage} />
-        <Stack.Screen name="HomePageHotel" component={HomePageHotel} />
-        <Stack.Screen name="signup" component={Signup} />
-        <Stack.Screen name="fillinfo" component={Profileupdate} />
-        <Stack.Screen name="login" component={Login} />
-        <Stack.Screen name="mainhomepage" component={DrawerStack} />
-        <Stack.Screen name="forgetpage" component={Forgetpage} />
-        <Stack.Screen name="otp" component={Otp} />
-        <Stack.Screen name="newpassword" component={NewPassword} />
-        <Stack.Screen name="single" component={Singlehotelpage} />
-      </Stack.Navigator> 
-
-     
-    </NavigationContainer>
-  );
-};
- */
-/*
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Counter from '../Counter';
-
-const Stack = createNativeStackNavigator();
-
-export default StackNav = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="count" component={Counter} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
-*/

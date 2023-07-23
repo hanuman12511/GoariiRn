@@ -50,7 +50,7 @@ const MyAddressListComponent = props => {
           onPress={() => handleAddressDelete(props.item.id)}
           underlayColor="#b82a2a80"
           style={styles.deleteButton}>
-          <Image source={{uri:'http://cdn.onlinewebfonts.com/svg/img_135131.png'}} resizeMode="cover" style={styles.btnIcon} />
+          <Image source={ic_delete} resizeMode="cover" style={styles.btnIcon} />
         </TouchableHighlight>
       </View>
     </TouchableOpacity>

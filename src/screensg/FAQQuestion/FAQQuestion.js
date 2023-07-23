@@ -28,7 +28,7 @@ class FAQQuestions extends Component {
   handleGetQuestions = async () => {
     const id = this.props.route.params;
     console.log('id on faqQQ', id);
-    const params = {categoryId: id};
+    const params = {id};
     await this.props.faqQuestion(params).then(() => {
       const {success, message} = this.props.isFaqQuestion;
       if (success) {
@@ -89,7 +89,6 @@ class FAQQuestions extends Component {
             <Text style={styles.errText}>{this.state.message}</Text>
           </View>
         )}
-          {this.state.isProcessing && <ProcessingLoader />}
       </SafeAreaView>
     );
   }
